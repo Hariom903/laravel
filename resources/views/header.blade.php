@@ -157,7 +157,7 @@
               <div class="dropdown-header d-flex align-items-center justify-content-between bg-primary">
                 <div class="d-flex my-2">
                   <div class="flex-shrink-0">
-                    <img src="http://localhost:8000/build/assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar wid-35" />
+                    <img src="{{url('build/assets/images/user/avatar-2.jpg')}}" alt="user-image" class="user-avtar wid-35" />
                   </div>
                   <div class="flex-grow-1 ms-3">
                     <h6 class="text-white mb-1">{{Auth::user()->name}}  🖖</h6>

@@ -4,7 +4,7 @@
     <div class="m-header">
       <a href="{{url('/')}}" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
-       <img src="http://localhost:8000/build/assets/images/logo-white.svg" alt="Logo" class="img-fluid logo-lg" />
+       <img src="{{url('build/assets/images/logo-white.svg')}}" alt="Logo" class="img-fluid logo-lg" />
 
       </a>
     </div>

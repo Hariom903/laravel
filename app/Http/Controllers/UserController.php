@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    
+
     function Register(Request $request) 
        {
 
@@ -67,8 +69,7 @@ class UserController extends Controller
         if(!Hash::check($request->current_password,Auth::User()->password)){
          return back()->withErrors(['current_password' => 'Current password is incorrect']);
         }
-  $user = Auth::user();
-$user->update([
+  $user = Auth::user()->update([
     'password' => Hash::make($request->new_password)
 ]);
 
