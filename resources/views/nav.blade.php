@@ -48,6 +48,7 @@
           <label>Pages</label>
           <i data-feather="monitor"></i>
         </li>
+          @if (!Auth::check())
         <li class="pc-item">
           <a href="{{url('login')}}" target="_blank" class="pc-link">
             <span class="pc-micon"><i data-feather="lock"></i></span>
@@ -60,6 +61,7 @@
             <span class="pc-mtext">Register</span>
           </a>
         </li>
+        @endif
         <li class="pc-item pc-caption">
           <label>Other</label>
           <i data-feather="sidebar"></i>

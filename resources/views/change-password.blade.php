@@ -2,7 +2,7 @@
   <x-slot name='main'>
 @if (session('success'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong></strong> {{session('success')}}
+  <strong> Password chenge  </strong> {{session('success')}}
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
@@ -26,38 +26,36 @@
                 <div class="text-center">
                   <a href="#"><img src="http://localhost:8000/build/assets/images/logo-dark.svg" alt="img" /></a>
                 </div>
-                <h4 class="text-center f-w-500 mt-4 mb-3">Login</h4>
+                <h4 class="text-center f-w-500 mt-4 mb-3">Change password</h4>
 
-                 <form action="{{url('login')}}" method="post">
+                 <form action="{{url('change-password')}}" method="post">
                   @csrf
-                <div class="form-group mb-3">
-                  <input type="email" class="form-control" name="email"  placeholder="Email Address" />
+             
+                    <div class="form-group mb-3">
+                  <input type="password" class="form-control" name="current_password" placeholder="current password" />
                 </div>
-                   @error('email')
+                 @error('current_password')
             <div style="color:red">{{ $message }}</div>
         @enderror
+
                 <div class="form-group mb-3">
-                  <input type="password" class="form-control" name="password" placeholder="Password" />
+                  <input type="password" class="form-control" name="new_password" placeholder="Password" />
                 </div>
-                 @error('password')
+                 @error('new_password')
             <div style="color:red">{{ $message }}</div>
         @enderror
+         <div class="form-group mb-3">
+                  <input type="password" class="form-control" placeholder="Confirm Password" name="new_password_confirmation" />
+                </div>
                 <div class="d-flex mt-1 justify-content-between align-items-center">
-                  <div class="form-check">
-                    <input class="form-check-input input-primary"  type="checkbox" id="customCheckc1" checked="" />
-                    <label class="form-check-label text-muted" for="customCheckc1">Remember me?</label>
-                  </div>
-                  <h6 class="text-secondary f-w-400 mb-0">Forgot Password?</h6>
+                 
                 </div>
                 <div class="text-center mt-4">
-                  <button type="submit" class="btn btn-primary shadow px-sm-4">Login</button>
+                  <button type="submit" class="btn btn-primary shadow px-sm-4"> Change password  </button>
                 </div>
 
                 </form>
-                <div class="d-flex justify-content-between align-items-end mt-4">
-                  <h6 class="f-w-500 mb-0">Don't have an Account?</h6>
-                  <a href="register" class="link-primary">Create Account</a>
-                </div>
+              
               </div>
             </div>
           </div>

@@ -26,7 +26,7 @@
           </div>
         </div>
         <!-- [ breadcrumb ] end -->
-
+         @if (Auth::check())
         <!-- [ Main Content ] start -->
         <div class="row">
           <!-- [ daily sales section ] start -->
@@ -504,6 +504,23 @@
           </div>
           <!-- [ Recent Users ] end -->
         </div>
+        @else()
+         <div class="container row justify-content-center">
+          
+             <li class="pc-item">
+          <a href="{{url('login')}}" target="_blank" class="pc-link">
+            <span class="pc-micon"><i data-feather="lock"></i></span>
+            <span class="pc-mtext">Login</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="{{url('register')}}" target="_blank" class="pc-link">
+            <span class="pc-micon"><i data-feather="user-plus"></i></span>
+            <span class="pc-mtext">Register</span>
+          </a>
+        </li>
+         </div>
+         @endif
         <!-- [ Main Content ] end -->
       </div>
     </div>  
