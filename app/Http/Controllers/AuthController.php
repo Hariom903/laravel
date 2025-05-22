@@ -33,7 +33,12 @@ class AuthController extends Controller
     }
 
 public function Alluser(Request $request){
-    return response()->json(Auth::user()->all());
+
+    
+    //  $users = User::with('salary')->get();
+    $users  = Auth::user()->load('salary'); 
+    return response()->json($users); 
+
 }
 
     public function user(Request $request)
