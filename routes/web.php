@@ -14,6 +14,7 @@ Route::post('userRegister',[UserController::class,'Register']);
 Route::post('login',[UserController::class,'userlogin']);
 Route::view('login','login')->name('login');
 Route::view('register','register');
+Route::view('invoice','invoice');
 
 Route::middleware(['auth'])->group(function () {
 Route::view('color','bc_color');
