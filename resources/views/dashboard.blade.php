@@ -17,7 +17,7 @@
               </div>
               <div class="col-md-12">
                 <ul class="breadcrumb mb-0">
-                  <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
+                  <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
                   <li class="breadcrumb-item"><a href="javascript: void(0)">Dashboard</a></li>
                   <li class="breadcrumb-item" aria-current="page">Home</li>
                 </ul>
@@ -407,7 +407,11 @@
           <!-- [ rating list ] end -->
 
           <!-- [ Recent Users ] start -->
-          <div class="col-xl-8 col-md-6">
+   
+   
+           <div class="col-xl-8 col-md-6">
+            
+           @if(Auth::user()->role !=='user');
             <div class="card Recent-Users">
               <div class="card-header">
                 <h5>Recent Users</h5>
@@ -416,94 +420,39 @@
                 <div class="table-responsive">
                   <table class="table table-hover">
                     <tbody>
+                       
+                      @foreach ($users as  $user )
+                        
                       <tr class="unread">
-                        <td
-                          ><img class="rounded-circle" style="width: 40px" src="http://localhost:8000/build/assets/images/user/avatar-1.jpg" alt="activity-user"
-                        /></td>
+                   
                         <td>
-                          <h6 class="mb-1">Isabella Christensen</h6>
-                          <p class="m-0">Lorem Ipsum is simply dummy</p>
+
+                          <img class="rounded-circle" style="width: 40px" src="http://localhost:8000/build/assets/images/user/avatar-1.jpg" alt="activity-user"/>
                         </td>
                         <td>
-                          <h6 class="text-muted"><i class="fas fa-circle text-success f-10 m-r-15"></i>11 MAY 12:56</h6>
+                          <h6 class="mb-1">{{$user['name']??""}}</h6>
+                          <p class="m-0">{{$user->role }}</p>
+                        </td>
+                        <td>
+                          <h6 class="text-muted"><i class="fas fa-circle text-success f-10 m-r-15"></i>{{$user->created_at->format('d-F-Y ,  h:i A')}}</h6>
                         </td>
                         <td
                           ><a href="#!" class="badge me-2 bg-brand-color-2 text-white f-12">Reject</a
                           ><a href="#!" class="badge me-2 bg-brand-color-1 text-white f-12">Approve</a></td
                         >
                       </tr>
-                      <tr class="unread">
-                        <td
-                          ><img class="rounded-circle" style="width: 40px" src="http://localhost:8000/build/assets/images/user/avatar-2.jpg" alt="activity-user"
-                        /></td>
-                        <td>
-                          <h6 class="mb-1">Mathilde Andersen</h6>
-                          <p class="m-0">Lorem Ipsum is simply</p>
-                        </td>
-                        <td>
-                          <h6 class="text-muted"><i class="fas fa-circle text-danger f-10 m-r-15"></i>11 MAY 10:35</h6>
-                        </td>
-                        <td
-                          ><a href="#!" class="badge me-2 bg-brand-color-2 text-white f-12">Reject</a
-                          ><a href="#!" class="badge me-2 bg-brand-color-1 text-white f-12">Approve</a></td
-                        >
-                      </tr>
-                      <tr class="unread">
-                        <td
-                          ><img class="rounded-circle" style="width: 40px" src="http://localhost:8000/build/assets/images/user/avatar-3.jpg" alt="activity-user"
-                        /></td>
-                        <td>
-                          <h6 class="mb-1">Karla Sorensen</h6>
-                          <p class="m-0">Lorem Ipsum is simply dummy</p>
-                        </td>
-                        <td>
-                          <h6 class="text-muted"><i class="fas fa-circle text-success f-10 m-r-15"></i>9 MAY 17:38</h6>
-                        </td>
-                        <td
-                          ><a href="#!" class="badge me-2 bg-brand-color-2 text-white f-12">Reject</a
-                          ><a href="#!" class="badge me-2 bg-brand-color-1 text-white f-12">Approve</a></td
-                        >
-                      </tr>
-                      <tr class="unread">
-                        <td
-                          ><img class="rounded-circle" style="width: 40px" src="http://localhost:8000/build/assets/images/user/avatar-1.jpg" alt="activity-user"
-                        /></td>
-                        <td>
-                          <h6 class="mb-1">Ida Jorgensen</h6>
-                          <p class="m-0">Lorem Ipsum is simply</p>
-                        </td>
-                        <td>
-                          <h6 class="text-muted f-w-300"><i class="fas fa-circle text-danger f-10 m-r-15"></i>19 MAY 12:56</h6>
-                        </td>
-                        <td
-                          ><a href="#!" class="badge me-2 bg-brand-color-2 text-white f-12">Reject</a
-                          ><a href="#!" class="badge me-2 bg-brand-color-1 text-white f-12">Approve</a></td
-                        >
-                      </tr>
-                      <tr class="unread">
-                        <td
-                          ><img class="rounded-circle" style="width: 40px" src="http://localhost:8000/build/assets/images/user/avatar-2.jpg" alt="activity-user"
-                        /></td>
-                        <td>
-                          <h6 class="mb-1">Albert Andersen</h6>
-                          <p class="m-0">Lorem Ipsum is</p>
-                        </td>
-                        <td>
-                          <h6 class="text-muted"><i class="fas fa-circle text-success f-10 m-r-15"></i>21 July 12:56</h6>
-                        </td>
-                        <td
-                          ><a href="#!" class="badge me-2 bg-brand-color-2 text-white f-12">Reject</a
-                          ><a href="#!" class="badge me-2 bg-brand-color-1 text-white f-12">Approve</a></td
-                        >
-                      </tr>
+                   @endforeach
+                     
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </div> 
             </div>
           </div>
+       </div>
+         @endif
           <!-- [ Recent Users ] end -->
-        </div>
+       
         @else()
          <div class="container row justify-content-center">
           

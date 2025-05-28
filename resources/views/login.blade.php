@@ -52,11 +52,12 @@
                 <div class="text-center mt-4">
                   <button type="submit" class="btn btn-primary shadow px-sm-4">Login</button>
                 </div>
-
+           
                 </form>
                 <div class="d-flex justify-content-between align-items-end mt-4">
                   <h6 class="f-w-500 mb-0">Don't have an Account?</h6>
                   <a href="register" class="link-primary">Create Account</a>
+                  <a href="{{ route('login.google') }}" class="link-primary">Create Account Google  </a>
                 </div>
               </div>
             </div>
