@@ -44,3 +44,12 @@ Route::controller(StripePaymentController::class)->group(function(){
     Route::get('stripe', 'stripe');
     Route::post('stripe', 'stripePost')->name('stripe.post');
 });
+
+
+use App\Http\Controllers\FacebookController;
+
+Route::get('/facebook-post-form', function () {
+    return view('facebookpost');
+})->name('facebook.form');
+
+Route::post('/facebook-post', [FacebookController::class, 'postMessage'])->name('facebook.post');
