@@ -10,7 +10,7 @@
     </div>
 @endif -->
 <x-layout>
-  <x-slot name='main'> 
+  <x-slot name='main'>
    <div class="auth-main">
       <div class="auth-wrapper v1">
         <div class="auth-form">
@@ -33,7 +33,7 @@
                   <div class="col-sm-6">
                     <div class="form-group mb-3">
                       <input type="text" class="form-control" placeholder="First Name" value="{{ old('firstname')}}"  name="firstname" />
-                
+
                       @error('firstname')
                            <span style="color: red;">{{ $message }}</span >
                         @enderror
@@ -42,7 +42,7 @@
                   <div class="col-sm-6">
                     <div class="form-group mb-3">
                       <input type="text" class="form-control" placeholder="Last Name" value="{{ old('lastname')}}" name="lastname" />
-                      
+
                       @error('lastname')
                            <span style="color: red;">{{ $message }}</span >
                         @enderror
@@ -72,6 +72,7 @@
                 </div>
                 <div class="text-center mt-4">
                   <button type="submit" class="btn btn-primary shadow px-sm-4">Sign up</button>
+                     <a href="{{ route('login.google') }}" class="link-primary">Create Account Google  </a>
                 </div>
 
                 </form>

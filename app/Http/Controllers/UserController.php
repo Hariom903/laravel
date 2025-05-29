@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class UserController extends Controller
 {
@@ -99,7 +98,7 @@ class UserController extends Controller
     public function logincallbackgoogle()
     {
 
-        $user = Socialite::driver('google')->stateless()->user();
+        $user = Socialite::driver('google')->user();
         $user1= User::where('google_id', $user->id)->orWhere('email', $user->email)->first();
         if($user1){
                  Auth::login($user1);
